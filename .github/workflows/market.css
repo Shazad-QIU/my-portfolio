@@ -1,0 +1,565 @@
+/* ========================================
+   Kurdads Market - Premium Page Styles
+   ======================================== */
+
+/* Gold/Premium Colors */
+:root {
+    --gold: #ffd700;
+    --gold-light: #ffec8b;
+    --gold-dark: #daa520;
+    --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffec8b 50%, #daa520 100%);
+    --premium-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --diamond-blue: #b9f2ff;
+}
+
+/* Market Page Background */
+.market-page .market-bg {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+        linear-gradient(180deg, #0a0612 0%, #1a0f2e 50%, #0d0a14 100%);
+}
+
+/* Floating Diamonds Background */
+.floating-diamonds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-diamonds::before,
+.floating-diamonds::after {
+    content: '💎';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: floatDiamond 20s linear infinite;
+}
+
+.floating-diamonds::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-diamonds::after {
+    left: 80%;
+    animation-delay: 10s;
+}
+
+@keyframes floatDiamond {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Gold Text */
+.gold-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+/* ========================================
+   Market Hero Section
+   ======================================== */
+.market-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.market-hero .hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.premium-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 32px;
+    animation: badgeGlow 2s ease-in-out infinite;
+}
+
+.diamond-icon {
+    font-size: 1.3rem;
+    animation: diamondSpin 3s linear infinite;
+}
+
+@keyframes diamondSpin {
+    0%, 100% { transform: rotate(-10deg) scale(1); }
+    50% { transform: rotate(10deg) scale(1.1); }
+}
+
+@keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.4); }
+}
+
+.market-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.title-line {
+    display: block;
+}
+
+.market-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+}
+
+/* Price Tag */
+.price-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding: 30px 50px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--radius-xl);
+    animation: priceFloat 4s ease-in-out infinite;
+}
+
+@keyframes priceFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.price-amount {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.currency {
+    font-size: 2rem;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.currency-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.price-duration {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Premium Button */
+.btn-premium {
+    background: var(--gold-gradient);
+    color: #000;
+    font-weight: 700;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 50px rgba(255, 215, 0, 0.6);
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: btnShine 3s infinite;
+}
+
+@keyframes btnShine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Market Glow */
+.market-glow {
+    background: 
+        radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+}
+
+/* ========================================
+   Features Section
+   ======================================== */
+.market-features {
+    padding: 100px 0;
+    position: relative;
+}
+
+.gold-tag {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+    border-color: rgba(255, 215, 0, 0.4);
+    color: var(--gold);
+}
+
+.features-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.feature-category {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.feature-category:nth-child(1) { animation-delay: 0.1s; }
+.feature-category:nth-child(2) { animation-delay: 0.2s; }
+.feature-category:nth-child(3) { animation-delay: 0.3s; }
+.feature-category:nth-child(4) { animation-delay: 0.4s; }
+.feature-category:nth-child(5) { animation-delay: 0.5s; }
+
+.category-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    padding-left: 10px;
+    border-left: 3px solid var(--gold);
+}
+
+.feature-cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.feature-cards-row.single-card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Premium Cards */
+.premium-card {
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.03), rgba(139, 92, 246, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    transition: all 0.4s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15);
+}
+
+.premium-card .card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.premium-card:hover .card-glow {
+    opacity: 1;
+}
+
+.premium-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.premium-card:nth-child(2) .premium-icon { animation-delay: 0.5s; }
+.premium-card:nth-child(3) .premium-icon { animation-delay: 1s; }
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.premium-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.premium-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Featured Card */
+.featured-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(139, 92, 246, 0.1));
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 40px;
+}
+
+.featured-card .premium-icon {
+    font-size: 4rem;
+}
+
+.beta-badge {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 16px;
+    background: var(--gold-gradient);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    animation: pulseBadge 2s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ========================================
+   Market CTA Section
+   ======================================== */
+.market-cta {
+    padding: 80px 0 120px;
+}
+
+.premium-cta {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(139, 92, 246, 0.08));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+}
+
+.cta-diamonds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.cta-diamonds::before,
+.cta-diamonds::after {
+    content: '💎';
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.1;
+}
+
+.cta-diamonds::before {
+    top: 20px;
+    left: 30px;
+    animation: floatSide 5s ease-in-out infinite;
+}
+
+.cta-diamonds::after {
+    bottom: 20px;
+    right: 30px;
+    animation: floatSide 5s ease-in-out infinite reverse;
+}
+
+@keyframes floatSide {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+.cta-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    border-radius: 50px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.premium-cta h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.premium-cta > p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.old-price {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.duration {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.premium-cta .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-note {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   Responsive Styles
+   ======================================== */
+@media (max-width: 768px) {
+    .market-title {
+        font-size: 3rem;
+    }
+
+    .price {
+        font-size: 2.5rem;
+    }
+
+    .price-tag {
+        padding: 24px 30px;
+    }
+
+    .premium-cta {
+        padding: 50px 24px;
+    }
+
+    .feature-cards-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-diamonds::before,
+    .cta-diamonds::after {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .market-title {
+        font-size: 2.5rem;
+    }
+
+    .premium-badge {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .currency-name {
+        font-size: 1.2rem;
+    }
+}
